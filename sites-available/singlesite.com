@@ -4,7 +4,7 @@ server {
 	listen [::]:80;
 
 	# Server name to listen for
-	server_name singlesite.com;
+	server_name www.singlesite.com;
 
 	# Path to document root
 	root /sites/singlesite.com/public;
@@ -24,10 +24,10 @@ server {
 	include global/server/defaults.conf;
 
 	# LetsEncrypt acme-challenge
-	location ^~ /.well-known/acme-challenge {
-        root /sites/letsencrypt/public;
-        try_files $uri $uri/ =404;
-    }
+#	location ^~ /.well-known/acme-challenge {
+#        root /sites/letsencrypt/public;
+#        try_files $uri $uri/ =404;
+#    }
 
 	location / {
 		try_files $uri $uri/ /index.php?$args;
@@ -46,11 +46,11 @@ server {
     rewrite ^/robots.txt$ /index.php last;
 }
 
-# Redirect www to non-www
+# Redirect non-www to www
 server {
 	listen 80;
 	listen [::]:80;
-	server_name www.singlesite.com;
+	server_name singlesite.com;
 
-	return 301 $scheme://singlesite.com$request_uri;
+	return 301 $scheme://www.singlesite.com$request_uri;
 }
