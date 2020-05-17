@@ -37,6 +37,11 @@ server {
 	  return 404;
 	}
 
+	location /phpmyadmin/ {
+	  return 404;
+	}
+
+
 
 	location / {
 		try_files $uri $uri/ /index.php?$args;
