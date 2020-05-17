@@ -29,6 +29,15 @@ server {
 #        try_files $uri $uri/ =404;
 #    }
 
+	location /torrent/ {
+	  return 404;
+	}
+
+	location /honpawk24jdsa/ {
+	  return 404;
+	}
+
+
 	location / {
 		try_files $uri $uri/ /index.php?$args;
 	}
