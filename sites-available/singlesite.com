@@ -13,7 +13,9 @@ server {
 	index index.php;
 
 	# Overrides logs defined in nginx.conf, allows per site logs.
-	access_log /sites/singlesite.com/logs/access.log;
+
+	# disable inv log file do avoid nginx file open limts
+	# access_log /sites/singlesite.com/logs/access.log;
 	error_log /sites/singlesite.com/logs/error.log;
 
 	# Default server block rules
